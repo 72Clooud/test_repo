@@ -1,8 +1,13 @@
+name: zadanie 2
 on:
   push:
     branches: [main, 'feature/**']
     path-ignore: ['docs/**']
   pull_request:
     branches: [main]
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Hello World z galezi ${{ github.ref_name }}"
 
-    
