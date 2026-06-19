@@ -11,7 +11,7 @@ jobs:
   demo:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$GREETING / autor: ${{ github.actor }}"
+      - run: echo "$GREETING / autor ${{ github.actor }}"
       - id: stamp
         run: echo "time=$(date +%s)" >> $GITHUB_OUTPUT
-      - run: echo "Znacznik: ${{ steps.stamp.outputs.time }}"
+      - run: echo "Znacznik ${{ steps.stamp.outputs.time }}"
