@@ -22,5 +22,5 @@ jobs:
   report:
     needs: [ build, test ]
     runs-on: ubuntu-latest
-    steps: [ { run: echo "Wersja: ${{ needs.build.outputs.ver }}" } ]
+    steps: [ { run: echo "Wersja ${{ needs.build.outputs.ver }}" } ]
 
