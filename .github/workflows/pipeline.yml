@@ -1,0 +1,26 @@
+name: zadanie 2
+on:
+  push:
+    branches: [main, 'feature/**']
+    paths-ignore: ['docs/**']
+  pull_request:
+    branches: [main]
+env:
+  GREETING: "Czesc z Actions"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      ver: ${{ steps.v.outputs.ver }}
+    steps:
+      - id: v
+        run: echo "ver=1.2.3" >> $GITHUB_OUTPUT
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps: [ { run: echo "Testuje ${{ needs.build.outputs.ver }}" } ]
+  report:
+    needs: [ build, test ]
+    runs-on: ubuntu-latest
+    steps: [ { run: echo "Wersja: ${{ needs.build.outputs.ver }}" } ]
+
