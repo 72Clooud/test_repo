@@ -15,4 +15,3 @@ jobs:
       - id: stamp
         run: echo "time=$(date +%s)" >> $GITHUB_OUTPUT
       - run: echo "Znacznik: ${{ steps.stamp.outputs.time }}"
-
