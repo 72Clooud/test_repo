@@ -8,10 +8,10 @@ on:
 env:
   GREETING: "Czesc z Actions"
 jobs:
-  demo:
+  use-secret:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$GREETING / autor ${{ github.actor }}"
-      - id: stamp
-        run: echo "time=$(date +%s)" >> $GITHUB_OUTPUT
-      - run: echo "Znacznik ${{ steps.stamp.outputs.time }}"
+      - name: Uzyj sekretu
+        env:
+          TOKEN: ${{ secrets.API_TOKEN }}
+        run: echo "Dlugosc tokenu ${#TOKEN}"
