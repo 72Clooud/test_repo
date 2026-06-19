@@ -2,7 +2,7 @@ name: zadanie 2
 on:
   push:
     branches: [main, 'feature/**']
-    path-ignore: ['docs/**']
+    paths-ignore: ['docs/**']
   pull_request:
     branches: [main]
 env:
@@ -10,9 +10,9 @@ env:
 jobs:
   demo:
     runs-on: ubuntu-latest
-  steps:
-    - run: echo "$GREETING / autor: ${{ github.actor }}"
-    - id: stamp
-      run: echo "time=$(date +%s)" >> $GITHUB_OUTPUT
-    - run: echo "Znacznik: ${{ steps.stamp.outputs.time }}"
+    steps:
+      - run: echo "$GREETING / autor: ${{ github.actor }}"
+      - id: stamp
+        run: echo "time=$(date +%s)" >> $GITHUB_OUTPUT
+      - run: echo "Znacznik: ${{ steps.stamp.outputs.time }}"
 
